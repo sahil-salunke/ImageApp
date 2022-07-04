@@ -45,7 +45,6 @@ class ImagesAdapter(private val images: List<Image>) :
             if (obj != null && !TextUtils.isEmpty(obj.url)) {
                 Glide.with(itemRowBindings.root).load(obj.url).into(itemRowBindings.imageView)
             }
-            itemRowBindings.image = obj
             itemRowBindings.executePendingBindings()
         }
     }

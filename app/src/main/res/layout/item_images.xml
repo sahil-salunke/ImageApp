@@ -2,13 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-
-        <variable
-            name="image"
-            type="com.example.imageapp.data.containers.Image" />
-
-    </data>
+    <data />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
