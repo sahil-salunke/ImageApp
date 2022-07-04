@@ -1,8 +1,11 @@
 package com.example.imageapp.presentation.viewmodel
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.imageapp.data.containers.Content
 import com.example.imageapp.domain.ImageUseCase
 import com.example.imageapp.presentation.State
 import com.example.imageapp.utils.Utils
@@ -21,6 +24,10 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(private val imageUseCase: ImageUseCase) :
     ViewModel() {
+
+    private val _contents: MutableLiveData<List<Content>> = MutableLiveData()
+    val contents: LiveData<List<Content>>
+        get() = _contents
 
     private fun getImageResponse() = flow {
         emit(State.LoadingState)
@@ -43,6 +50,7 @@ class MainViewModel @Inject constructor(private val imageUseCase: ImageUseCase) 
                 .collect {
                     when (it) {
                         is State.DataState -> {
+                            _contents.value = it.data.content
                             Log.d("Success", "${it.data.content}")
                         }
                         is State.ErrorState -> Log.d("Error", "${it.exception}")
