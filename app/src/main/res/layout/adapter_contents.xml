@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="content"
-            type="com.example.imageapp.data.containers.Content" />
+            name="adapter"
+            type="com.example.imageapp.presentation.adapters.ImagesAdapter" />
 
     </data>
 
@@ -16,13 +16,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_15"
-        android:background="@color/purple_700"
         tools:context=".presentation.adapters.ContentsAdapter">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvContents"
             android:layout_width="@dimen/no_margin"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/margin_100"
+            android:adapter="@{adapter}"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintLeft_toLeftOf="parent"

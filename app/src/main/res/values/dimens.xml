@@ -14,5 +14,6 @@
     <dimen name="margin_50">50dip</dimen>
     <dimen name="margin_55">55dip</dimen>
     <dimen name="margin_60">60dip</dimen>
+    <dimen name="margin_100">100dip</dimen>
 
 </resources>
